@@ -71,7 +71,8 @@ const Recommendation = () => {
               boxShadow: '5px 5px 10px 0px rgba(0, 0, 0, 0.5)',
             }}
             startIcon={<NavigateNextIcon />}
-            onClick={() => router.push('/recommendation')}
+            // onClick={() => router.push('/recommendation')}
+            href='https://course-module-ai.vercel.app/create'
           >
             Back to Course
           </Button>
