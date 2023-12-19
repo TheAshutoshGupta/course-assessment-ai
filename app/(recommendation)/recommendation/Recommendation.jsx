@@ -1,9 +1,12 @@
-
+"use client"
 import React from 'react'
 import BoxWrapper from '../../shared/BoxWrapper'
-import { Box, Button, Typography,Paper  } from '@mui/material'
+import { Box, Button, Typography } from '@mui/material'
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import { useRouter } from 'next/navigation';
  
 const Recommendation = () => {
+  const router = useRouter();
   const webDevelopmentContext = [
     'Frontend frameworks and libraries',
     'Responsive design and cross-browser',
@@ -11,22 +14,23 @@ const Recommendation = () => {
     'Continuous integration and deployment',
   ];
   const randomNumber = Math.floor(Math.random() * 4) + 1;
+  let val="Nextjs"
   return (
     <Box>
     <BoxWrapper title="Recommendation">
         <Box>
         <Typography sx={{marginTop:'1rem', marginBottom:'1rem' ,fontWeight:'600', fontSize:'1.4rem', textAlign:'center'}}>
-        According to the Assessment <br/>You should go for {webDevelopmentContext[randomNumber]}  course
+        According to the Assessment <br/>You should go for 
         </Typography>
         </Box> 
         <Box>
 
-      <Typography sx={{marginTop:'1rem', marginBottom:'1rem' ,fontWeight:'400', fontSize:'1.4rem', textAlign:'center'}}>
-        {webDevelopmentContext[randomNumber]} 
-        </Typography>
-
     
       <Typography sx={{marginTop:'1rem', marginBottom:'1rem' ,fontWeight:'400', fontSize:'1.4rem', textAlign:'center'}}>
+       { webDevelopmentContext[randomNumber]}
+        </Typography>
+
+        <Typography sx={{marginTop:'1rem', marginBottom:'1rem' ,fontWeight:'400', fontSize:'1.4rem', textAlign:'center'}}>
         Basics Of javascript framework
         </Typography>
 
@@ -43,6 +47,21 @@ const Recommendation = () => {
         </Box>
         
     </BoxWrapper>
+    <Box sx={{ display: 'flex', justifyContent: 'end', marginTop: '2rem' }}>
+    <Button
+            sx={{
+              padding: '1.1rem 1.5rem',
+              borderRadius: '10px',
+              color: 'white',
+              background: 'linear-gradient(108deg, #654ea3 -0.23%, rgba(143, 192, 169, 0.00) 91.06%), #eaafc8',
+              boxShadow: '5px 5px 10px 0px rgba(0, 0, 0, 0.5)',
+            }}
+            startIcon={<NavigateNextIcon />}
+            onClick={() => router.push('/recommendation')}
+          >
+            Next
+          </Button>
+          </Box>
     
           </Box>
           
