@@ -5,8 +5,10 @@ import { Box, Button, Typography,Paper  } from '@mui/material'
 import { BarChart } from '@mui/x-charts/BarChart'
 import { PieChart } from '@mui/x-charts/PieChart'
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import { useRouter } from 'next/navigation';
  
 const Analytics = () => {
+    const router = useRouter();
   
   const arr=[40+Math.floor(Math.random() * (70 - 40 + 1)) + 1,30+ Math.floor(Math.random() * (70 - 40 + 1)) + 1,40+Math.floor(Math.random() * (70 - 40 + 1)) + 1]
   return ( 
@@ -43,7 +45,7 @@ const Analytics = () => {
             },
           ]}
           width={500}
-          height={400}
+          height={300}
         />
         <PieChart
           colors={['#A08AD2', '#BBA8E2', '#D0C1ED']}
@@ -69,7 +71,7 @@ const Analytics = () => {
             
           ]}
           width={500}
-          height={400}
+          height={300}
         />
         </Box>
     </BoxWrapper>
@@ -85,7 +87,7 @@ const Analytics = () => {
             startIcon={<NavigateNextIcon />}
             onClick={() => router.push('/recommendation')}
           >
-            Analytics
+            Recommendation
           </Button>
         </Box>
     

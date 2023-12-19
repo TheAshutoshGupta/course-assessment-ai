@@ -14,7 +14,7 @@ export default function AnalyticsLayout({ children }) {
       <Container
         maxWidth={false}
         sx={{
-          maxWidth: '70rem',
+          maxWidth: '65rem',
         }}
       >
         {children}

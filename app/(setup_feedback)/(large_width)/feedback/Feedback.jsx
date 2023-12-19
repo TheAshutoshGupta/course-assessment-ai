@@ -9,6 +9,7 @@ import { FeedbackContext } from '../../../providers/FeedbackProvider';
 import QuestionBox from './QuestionBox';
 import FeedbackTabs from './FeedbackTabs';
 import ReplayRoundedIcon from '@mui/icons-material/ReplayRounded';
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { useRouter } from 'next/navigation';
 
 export default function Feedback() {
@@ -16,6 +17,8 @@ export default function Feedback() {
   const [questions] = useContext(QuestionContext);
   const [currentQuestion, setCurrentQuestion] = useState(-1); // -1 for overall feedback
   const router = useRouter();
+
+
 
   return (
     <Grid container columns={9}>
@@ -103,6 +106,7 @@ export default function Feedback() {
             {currentQuestion == -1 && (
               <Grid
                 item
+                overflow="auto"
                 xs={12}
                 border={'solid'}
                 borderRadius='1rem'
@@ -110,16 +114,23 @@ export default function Feedback() {
                 paddingRight='2rem'
                 paddingLeft='2.5rem'
                 height='45vh'
+                sx={{
+                  overflowY: 'auto', // Add this line to make it scrollable
+                  '&::-webkit-scrollbar': {
+                  width: '0', // Hide scrollbar
+      },
+    }}
               >
-                <Typography variant='h3'>Overall Feedback</Typography>
-                <Box sx={{width:'24rem', borderRadius:'50px',margin:'0.5rem 0px' ,height:'10px' ,background: 'linear-gradient(108deg, #654ea3 -0.23%, rgba(143, 192, 169, 0.00) 91.06%), #eaafc8', marginBottom:'2rem'}}></Box>
+                {/* <Typography variant='h3'>Overall Feedback</Typography>
+                <Box sx={{width:'24rem', borderRadius:'50px',margin:'0.5rem 0px' ,height:'10px' ,background: 'linear-gradient(108deg, #654ea3 -0.23%, rgba(143, 192, 169, 0.00) 91.06%), #eaafc8', marginBottom:'2rem'}}></Box> */}
                 <Box
-                  overflow='auto'
+                  overflowY='scroll'
                   maxHeight='19rem'
                   paddingRight='.5rem'
                   className='feedbackScroll'
                 >
-                  <Typography>{feedback.overall}</Typography>
+                  
+                  <Typography sx={{ marginBottom: '1rem' }}>{feedback.overall}</Typography> 
                 </Box>
               </Grid>
             )}
@@ -150,8 +161,8 @@ export default function Feedback() {
               background: 'linear-gradient(108deg, #654ea3 -0.23%, rgba(143, 192, 169, 0.00) 91.06%), #eaafc8',
               boxShadow: '5px 5px 10px 0px rgba(0, 0, 0, 0.5)',
             }}
-            startIcon={<ReplayRoundedIcon />}
-            onClick={() => router.push('/interview')}
+            startIcon={<NavigateNextIcon />}
+            onClick={() => router.push('/analytics')}
           >
             Analytics
           </Button>
