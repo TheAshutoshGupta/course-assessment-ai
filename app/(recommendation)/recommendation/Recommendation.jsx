@@ -72,7 +72,7 @@ const Recommendation = () => {
             }}
             startIcon={<NavigateNextIcon />}
             // onClick={() => router.push('/recommendation')}
-            href='https://course-module-ai.vercel.app/create'
+            href='http://localhost:3000/'
           >
             Back to Course
           </Button>
